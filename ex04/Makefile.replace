@@ -1,21 +1,21 @@
-NAME = Harl
+NME = Replace
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iincludes
+CXXFLGS = -Wall -Wextra -Werror -std=c++98 -Iincludes
 
 SRCS =	srcs/main.cpp \
-		srcs/Harl.cpp
+				srcs/Replace.cpp
 
 OBJDIR = objs
 OBJS = $(patsubst srcs/%.cpp,$(OBJDIR)/%.o,$(SRCS))
 
-all: $(NAME)
+all: $(NME)
 
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+$(NME): $(OBJS)
+	$(CXX) $(CXXFLGS) $(OBJS) -o $(NME)
 
 $(OBJDIR)/%.o: srcs/%.cpp | $(OBJDIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLGS) -c $< -o $@
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
@@ -24,7 +24,7 @@ clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NME)
 
 re: fclean all
 
